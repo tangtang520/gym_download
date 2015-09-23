@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<title>光明云媒</title>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="光明网">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no minimal-ui">
+
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<!-- CSS Global Compulsory-->
+<link rel="stylesheet" href="http://static.pgyer.com/static-20150917/assets/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="http://static.pgyer.com/static-20150917/assets/css/style.css" />
+<link rel="stylesheet" href="http://static.pgyer.com/static-20150917/assets/plugins/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<!--=== Breadcrumbs ===-->
+<div class="row-fluid breadcrumbs margin-bottom-20">
+  <div class="container">
+    <h1 class="pull-left">光明云媒</h1>
+    <ul class="pull-right breadcrumb" style="padding-left:0">
+      <li>版本：<span id="version"></span></li>
+      <li>大小：<span id="size"></span></li>
+    </ul>
+  </div>
+  <!--/container--> 
+</div>
+<!--/breadcrumbs--> 
+<!--=== End Breadcrumbs ===--> 
+<div class="container">
+	<div class="alert alert-info" id="weixin_tip" style="display:none">
+		<strong>温馨提示</strong>
+		<p>请点击微信右上角按钮，然后在弹出的菜单中选择其他浏览器打开</p>
+	</div>
+</div>
+<!--=== Content Part ===-->
+<div class="container content" style="padding-top:20px">
+  <div class="view row">
+    <div class="span12" style="text-align:center;">
+    	<img src="http://7kttjt.com1.z0.glb.clouddn.com/image/view/app_icons/d2220e004c557739646700a5c62fbada/120" class="appicon" />
+    </div>
+  </div>
+  <div id="" class="view row" style="margin-top:30px;">
+    <div class="span12 margin-bottom-20" style="text-align:center;">
+      <div class="spinner">
+        <a href="#"  class="btn-u btn-u-lg" style="background:#56bc94" id="link"> <i class="fa fa-download"></i> 点击安装</a> </div>
+    </div>
+    <div class="span12" style="text-align:center;"> <span class="label label-success" id="tip"></span> </div>
+  </div>
+</div>
+<!--/container--> 
+<!--=== End Content Part ===--> 
+
+<!--=== Copyright ===-->
+<div class="copyright">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8  col-xs-12 col-md-6 col-sm-6 text-left"> 本页面由 <a href="http://www.gmw.cn/">光明网</a> 提供</div>
+    </div>
+    <!--/row-fluid--> 
+  </div>
+  <!--/container--> 
+</div>
+<!--=== End Copyright ===-->
+<script type="text/javascript">
+	var AppInfo = {	
+		android: {	
+			version: '5.1',
+			size: '25 MB',
+			tip: '适用于Android设备',
+			link: 'http://cloud.gmw.cn/android.apk'
+		},
+		ios: {	
+			version: '7.7',
+			size: '7.6 MB',
+			tip: '适用于iOS设备',
+			link: 'itms-services://?action=download-manifest&url=https://dn-company.qbox.me/gmym_APP.plist'
+		}
+	}
+
+	var getId = function(id){	
+		return document.getElementById(id)
+	}
+
+	var render = function(){	
+
+	}	
+
+	var u = navigator.userAgent, app = navigator.appVersion;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	var isWeixin = !!u.match(/MicroMessenger/i);
+
+	if(isWeixin){	
+		getId('weixin_tip').style.display = 'block';
+	}
+	var data = AppInfo[isiOS?'ios':'android']
+	getId('version').innerHTML = data.version
+	getId('size').innerHTML = data.size
+	getId('tip').innerHTML = data.tip
+	getId('link').href = data.link
+
+</script>
+</body>
+</html>
